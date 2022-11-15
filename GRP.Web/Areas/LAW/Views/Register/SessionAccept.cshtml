@@ -1,0 +1,142 @@
+﻿@model GRP.Models.LAW.Register.SessionAccept.SessionAcceptFormOpen
+<style type="text/css">
+    .vapprvBigRadioBtn {
+        width: 14px;
+        height: 14px;
+        margin-top: 3px;
+        margin-left: 1px;
+        clear: none;
+    }
+
+    .vapprvLblForRadio {
+        clear: none;
+        padding: 0px 0.5px 0 4px;
+        position: relative;
+        top: -4px;
+        font-size: 13.5px;
+    }
+
+    .datagrid-header-row td {
+        background: #d3e9d3;
+    }
+
+    .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+        font-size: 14px;
+    }
+
+    .datagrid-header .datagrid-cell span {
+        font-size: 14px;
+    }
+</style>
+<div class="easyui-layout" data-options="fit:true">
+    <div id="@string.Concat("lawTabContainer_", Model.formUniqueId)" data-options="region:'center',border:false" style="position:relative;">
+        <table id="@string.Concat("lawTblSessionReqApprvContainer_", Model.formUniqueId)" class="easyui-datagrid" data-editRowIndex="-1"
+               data-options="fit:true,rownumbers: true,remoteSort:false,singleSelect:true,onSelect: onLawSessionReqListSelect,onClickCell: onLawSessionListClickCell">
+            <thead>
+                <tr>
+                    <th data-options="field:'CASE_YEAR',width:60,align:'center'">السنة</th>
+                    <th data-options="field:'CASE_SERIAL',width:70,align:'center'">رقم الطلب</th>
+                    <th data-options="field:'SESSION_ID',width:90,align:'center'">رقم الجلسة</th>
+                    <th data-options="field:'SESSION_DATE',hidden:true"></th>
+                    <th data-options="field:'SESSION_HDATE',hidden:true"></th>
+                    <th data-options="field:'SESSION_GDATE',width:150,align:'center'">تاريخ الجلسة</th>
+                    <th data-options="field:'EMP_CODE',width:100,align:'right',hidden:true">رقم الموظف</th>
+                    <th data-options="field:'SESSION_STATUS',hidden:true"></th>
+                    <th data-options="field:'STATUS_DESC',width:120,align:'center'">حالة الجلسة</th>
+                    <th data-options="field:'CASE_NO',width:100,align:'center'">تابعة للقضية رقم</th>
+                    <th data-options="field:'BRANCH_SRL_ID',hidden:true"></th>
+                    <th data-options="field:'BRANCH_NAME',width:150,align:'center'">الفرع</th>
+                    <th data-options="field:'CASE_SECTOR',hidden:true"></th>
+                    <th data-options="field:'CASE_SECTOR_DESC',width:150,align:'center'">قطاع المحكمة</th>
+                    @*<th data-options="field:'SECTOR_COURT',width:150,align:'center'">المحكمة</th>*@
+                    <th data-options="field:'COURT_CITY',hidden:true"></th>
+                    <th data-options="field:'CITY_NAME',width:150,align:'center'">المدينة</th>
+                    <th data-options="field:'SESSION_NOTES',width:300,align:'center'">ملاحظات</th>
+                    <th data-options="field:'IS_ATTEND',width:120,align:'center',formatter:lawCaseSessionApprovalStatusFormatter">حالة الحضور</th>
+                    <th data-options="field:'CBY',width:0,hidden:true"></th>
+                    <th data-options="field:'CDT',width:0,hidden:true"></th>
+                    <th data-options="field:'UBY',width:0,hidden:true"></th>
+                    <th data-options="field:'UDT',width:0,hidden:true"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var session in Model.sessionLst)
+                {
+                    var i = 0;
+                    <tr>
+                        <td>@session.CASE_YEAR</td>
+                        <td>@session.CASE_SERIAL</td>
+                        <td>@session.SESSION_ID</td>
+                        <td>@session.SESSION_DATE</td>
+                        <td>@session.SESSION_HDATE</td>
+                        <td>@session.SESSION_GDATE</td>
+                        <td>@session.EMP_CODE</td>
+                        <td>@session.SESSION_STATUS</td>
+                        <td>@session.STATUS_DESC</td>
+                        <td>@session.CASE_NO</td>
+                        <td>@session.BRANCH_SRL_ID</td>
+                        <td>@session.BRANCH_NAME</td>
+                        <td>@session.CASE_SECTOR</td>
+                        <td>@session.CASE_SECTOR_DESC</td>
+                        <td>@session.COURT_CITY</td>
+                        <td>@session.CITY_NAME</td>
+                        <td>@session.SESSION_NOTES</td>
+                        <td>@session.IS_ATTEND</td>
+                        <td>@session.CBY</td>
+                        <td>@session.CDT</td>
+                        <td>@session.UBY</td>
+                        <td>@session.UDT</td>
+                    </tr>
+                    i += 1;
+                }
+            </tbody>
+        </table>
+
+        @*<div id="@string.Concat("vacReqDetail",3)" class="easyui-window" style="width:93%;height:500px;padding:1px;" data-options="iconCls:'icon-more',modal:true,collapsible:false,minimizable:false,maximizable:false,closable:true,closed:true"></div>*@
+    </div>
+    <div data-options="region:'south'" style="text-align:center;height:120px;overflow-y:hidden;">
+        <table style="width:75%">
+            <tr>
+                <td style="width:70px;">
+                    ملاحظات
+                </td>
+                <td>
+                    <input id="@string.Concat("txtSessionAttndNotes_",Model.formUniqueId)" class="easyui-textbox" data-options="multiline:true" style="width:100%;height:50px;" />
+                </td>
+            </tr>
+        </table>
+
+        <div style="padding:0 15px;margin-bottom:3px;">
+            <div style="text-align:center;">
+                مدخل البيانات: <input id="@string.Concat("txtSessionApprvCBy", Model.formUniqueId)" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                &nbsp;
+                تاريخ الإدخال : <input id="@string.Concat("txtSessionApprvCDt", Model.formUniqueId)" class="easyui-textbox" data-options="editable:false" style="width:125px;" />
+                &nbsp;&nbsp;&nbsp;
+                معدل البيانات : <input id="@string.Concat("txtSessionApprvUBy", Model.formUniqueId)" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                &nbsp;
+                تاريخ التعديل : <input id="@string.Concat("txtSessionApprvUDt", Model.formUniqueId)" class="easyui-textbox" data-options="editable:false" style="width:125px;" />
+            </div>
+        </div>
+        <div class="easyui-panel" style="width:200px;" data-options="cls:'inlinePanel'">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',disabled:true">جديد</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="@string.Concat("lawSaveSessionAcceptBtn('",Model.formUniqueId,"')")">حـفظ</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-removeRed',disabled:true">حـذف</a>
+        </div>
+        <div class="easyui-panel" style="width:680px;" data-options="cls:'inlinePanel'">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',disabled:true">إنشاء بحث</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-filter',disabled:true">تنفيذ البحث</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',disabled:true">إلغاء البحث</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-lastRecord',disabled:true">السجل الأول</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-nextRecord',disabled:true">السجل السابق</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-previousRecord',disabled:true">السجل التالي</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-firstRecord',disabled:true">السجل الأخير</a>
+        </div>
+        <div class="easyui-panel" style="width:75px;" data-options="cls:'inlinePanel'">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-print',disabled:true">طباعه</a>
+        </div>
+        <div class="easyui-panel" style="width:75px;" data-options="cls:'inlinePanel'">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-exit'" onclick="">خروج</a>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/LAW/scripts/Register/SessionAccept.js"></script>

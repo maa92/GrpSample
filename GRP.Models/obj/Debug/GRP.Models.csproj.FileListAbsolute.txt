@@ -1,0 +1,7 @@
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\bin\Debug\GRP.Models.exe
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\bin\Debug\GRP.Models.pdb
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\bin\Debug\Newtonsoft.Json.dll
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\bin\Debug\Newtonsoft.Json.xml
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\obj\Debug\GRP.Models.exe
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\obj\Debug\GRP.Models.pdb
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.Models\obj\Debug\GRP.Models.csprojResolveAssemblyReference.cache

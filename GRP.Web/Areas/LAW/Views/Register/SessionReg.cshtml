@@ -1,0 +1,196 @@
+﻿<style>
+    .datagrid-header-row td {
+        background: #d3e9d3;
+    }
+
+    .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+        font-size: 14px;
+    }
+
+    .datagrid-header .datagrid-cell span {
+        font-size: 14px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .close {
+        cursor: pointer;
+        position: static;
+        background-color: #f6f6f6;
+        /*top: 50%;
+    right: 0%;
+    padding: 12px 16px;*/
+        /*transform: translate(0%, -50%);*/
+    }
+
+        .close:hover {
+            background: #bbb;
+        }
+
+    #removeBtn {
+        color: gray;
+        cursor: pointer;
+        position: static;
+        background-color: #f6f6f6;
+    }
+</style>
+<div id='@ViewData["wndId"]' class="easyui-window" title='@ViewData["wndTitle"]' data-options="closed:true,inline:true,collapsible:false,minimizable:false,onOpen:openSessionRegForm,onClose:closeSessionRegForm,iconCls:'icon-add'" style="width:80%;height:500px;">
+    <div id="SessionRegLayout" class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'center',border:false">
+            <div id="@string.Format("{0}_{1}","SessionContainer", ViewData["wndId"])">
+                <table>
+                    <tr>
+                        <td style="text-align:left;">رقم الجلسة</td>
+                        <td>
+                            <input id="txtSessionSerial" class="easyui-textbox" data-options="editable:false" style="width:100px;" />
+                        </td>
+
+                        <td style="text-align:left;">تاريخ الجلسة</td>
+                        <td>
+                            <input id="txtSessionDateH" class="easyui-hdatebox" data-options="editable:true,required:true, onChange:TxtSessionYearHjChange" style="width:100px;" />
+                            <input id="txtSessionDateG" class="easyui-datebox" data-options="editable:true,required:true, onChange:TxtSessionYearGrgChange" style="width:100px;" />
+                        </td>
+
+                        <td style="text-align:left;">تابعة للقضية رقم</td>
+                        <td>
+                            <input id="numOfCase" class="easyui-numberbox" data-options="editable:true" style="width:154px;" />
+                        </td>
+
+                        @*<td rowspan="4">
+                                <a id="@string.Format("{0}_{1}", "btnSaveSession", ViewData["wndId"])" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',iconAlign:'top',width:100,height:60" onclick="doSaveNewSession()">حـفظ</a>
+                            </td>*@
+
+                    </tr>
+                    <tr>
+                        @*<td style="text-align:left;">تاريخ الجلسة</td>
+                            <td>
+                                <input id="txtSessionDateH" class="easyui-hdatebox" data-options="editable:true" style="width:100px;" />
+                                <input id="txtSessionDateG" class="easyui-datebox" data-options="editable:true" style="width:100px;" />
+                            </td>*@
+
+                        <td style="text-align:left;">حالة الجلسة</td>
+                        <td>
+                            <select id="SessionStatus" class="easyui-combobox" data-options="editable:true,valueField:'CODE_ID',textField:'CODE_NAME'" style="width:154px;"></select>
+                        </td>
+
+                        <td style="text-align:left;">
+                            اليوم
+                        </td>
+                        <td style="text-align:left">
+                            <input id="txtSessionDay" class="easyui-textbox" data-options="editable:true" style="width:98px;" />
+                            الساعة
+                            <input id="txtSessionTime" class="easyui-textbox" data-options="editable:true" style="width:68px;" />
+                        </td>
+                        @*<td>
+                                <input id="txtCourtName" class="easyui-textbox" data-options="editable:true" style="width:203px;" />
+                            </td>*@
+
+                        @*<td style="text-align:left;">المرفقات الخاصة بالجلسة</td>
+                            <td>
+                                <form id="fileForm" name="file_Form" enctype="multipart/form-data" method="post">
+                                    <input id="fbSessionFileUpload" name="file_name" style="width:215px;" />
+                                </form>
+                            </td>
+                            <td>
+                                <!-- <div id="div_files"></div>  -->
+                                <table id="FilesGrid"></table>
+                            </td>
+                            <td>
+                               <!-- <div id="progress" class="easyui-progressbar" style="width:80px;display:none;"></div> -->
+                                <div id="progressCounter" style="display:none;color:dimgray"></div>
+                                <input class="easyui-validatebox" type="hidden" id="AttachBox" name="AttachBox" />
+                            </td>*@
+                    </tr>
+                    @*<tr>
+                            <td style="text-align:left;">الموظف المختص</td>
+                            <td colspan="3">
+                                <input id="ddlEmpName" style="width:50%;" />
+                            </td>
+
+                        </tr>*@
+                    <tr>
+                        <td style="text-align:left;">ملاحظات</td>
+                        <td colspan="5">
+                            <input id="txtNotes" class="easyui-textbox" data-options="multiline:true" style="width:100%;height:70px" />
+                        </td>
+                    </tr>
+                </table>
+                @*<div id="div_files"></div>*@
+                <div data-options="region:'center',border:false" style="width:100%">
+                    <table id="tblEmpsInSession" class="easyui-datagrid"
+                           data-options="fit:false,remoteSort:false,rownumbers:true,toolbar:'#tbEmpsInSessionDetGrdActions',singleSelect:true,title: 'الموظفين المختصين',
+                       onSelect:LawEmpInSessionDetGrdSelect, onBeginEdit:LawEmpInSessionDetGrdOnBeginEdit, onClickCell:LawEmpInSessionDetGrdOnClickCell, onEndEdit:LawEmpInSessionDetGrdOnEndEdit">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'df',hidden:true"></th>
+                                <th data-options="field:'SESSION_ID',hidden:true"></th>
+                                <th data-options="field:'EMP_CODE',width:400,align:'right',editor:{type:'combobox',options:{required:false,mode:'remote',valueField:'eNm',textField:'eNm',selectOnNavigation:false,loader:EmpLoader }}@*,formatter:lawEmpDetEmpFormatter*@">رقم / إسم الموظف</th>
+                                <th data-options="field:'EMPNAME',hidden:true"></th>
+                                <th data-options="field:'SESSION_NOTE', width:300, align:'center', editor:{type:'textbox', options:{required:false}}">ملاحظات</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="tbEmpsInSessionDetGrdActions">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" onclick="doAddEmpInSession()">إضافة</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-removeRed" onclick="doDeleteEmpInSession()">حـذف</a>
+                </div>
+            </div>
+
+        </div>
+        <div data-options="region:'west',border:false" style="width:36%">
+            <table id="tblFilesInSession" class="easyui-datagrid"
+                   data-options="fit:true,remoteSort:false,rownumbers:true,toolbar:'#tbFilesInSessionDetGrdActions',singleSelect:true,title: 'المرفقات (ملاحظة: الملفات المسموحة هي  .pdf و .jpg و .doc و يجب أن لا تزيد عن 1 ميجابايت)',
+                       onSelect:LawFilesInSessionDetGrdSelect, onBeginEdit:LawFilesInSessionDetGrdOnBeginEdit, onClickCell:LawFilesInSessionDetGrdOnClickCell, onEndEdit:LawFilesInSessionDetGrdOnEndEdit">
+                <thead>
+                    <tr>
+                        <th data-options="field:'df',hidden:true"></th>
+                        <th data-options="field:'File',hidden:true"></th>
+                        <th data-options="field:'ATTACH_ID',width:50">تسلسل</th>
+                        <th data-options="field:'File_Name',width:400,align:'center',editor:{type:'textbox',options:{required:false,align:'center'}}">إسم الملف</th>
+                    </tr>
+                </thead>
+            </table>
+            <div id="tbFilesInSessionDetGrdActions">
+                @*<form id="fileForm" name="file_Form" enctype="multipart/form-data" style="display:none;">
+                        <input type="file" id="FileInput" name="filename" style="display:none;" />
+                        <!-- <input id="fbSessionFileUpload" name="file_name" style="display:none;" /> -->
+                    </form>*@
+                @*<fieldset style="width:300px;margin-right:5px">
+                        <legend>نوع المرفق</legend>
+                        <select id="AttachmentType" class="easyui-combobox" data-options="editable:true,required:true,selectOnNavigation:false" style="width:250px;">
+                            <option></option>
+                            <option value="1">مذكرة جوابية من المدعي عليه</option>
+                            <option value="2">لائحة دعوى</option>
+                            <option value="3">حكم إبيتدائي</option>
+                        </select>
+                    </fieldset>*@
+                <label style="text-align:left;">نوع المرفق</label>
+                &nbsp;
+                <select id="AttachmentType" class="easyui-combobox" data-options="editable:true,required:true,valueField:'CODE_ID',textField:'CODE_NAME'" style="width:250px;">
+                    @*<option></option>
+                        <option value="1">مذكرة جوابية من المدعي عليه</option>
+                        <option value="2">لائحة دعوى</option>
+                        <option value="3">حكم إبتدائي</option>*@
+                </select>
+                <form id="SessionfileForm" name="file_SessionForm" enctype="multipart/form-data" method="post">
+                    <input type="file" id="FileInput" name="fileData" style="display:none;" />
+                </form>
+                @*<input type="file" id="FileInput" name="filename" style="display:none;" />*@
+                <a href="javascript:void(0)" id="btnFileUpload" class="easyui-linkbutton" iconCls="icon-import" onclick="doAddAttachmentSession()">إضافة مرفق</a>
+                <a href="javascript:void(0)" id="btnFileRemove" class="easyui-linkbutton" iconCls="icon-removeRed" onclick="doDeleteAttachmentSession()">حـذف مرفق</a>
+            </div>
+        </div>
+
+        <div data-options="region:'south'" style="text-align:center;height:30px;">
+            <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;" data-options="iconCls:'icon-save'" onclick="doSaveNewSession()">حـفظ الجلسة</a>
+            @*<div class="easyui-panel" style="width:100%;text-align:center;" data-options="cls:'inlinePanel'">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px;" data-options="iconCls:'icon-save'" onclick="doSaveNewSession()">حـفظ</a>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<script src="~/Areas/LAW/scripts/Register/SessionReg.js"></script>

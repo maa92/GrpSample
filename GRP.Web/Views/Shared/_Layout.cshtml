@@ -1,0 +1,149 @@
+﻿@model GRP.Models.System.BaseHomePage
+@{ Layout = null;}
+
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+    <meta charset="utf-8" />
+    @*<meta http-equiv="content-type" content="text/html; charset=UTF-8">*@
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/styles/normalize.css" rel="stylesheet" />
+    <link href="~/jqplugins/eui/themes/cupertino/easyui.css" rel="stylesheet" />
+    <link href="~/jqplugins/eui/css/easyui-rtl.css" rel="stylesheet" />
+    <link href="~/jqplugins/eui/themes/icon.css" rel="stylesheet" />
+    <link href="~/styles/app.css" rel="stylesheet" />
+    <title>@ViewBag.Title - الأنظمة الإدارية والمالية</title>
+    <!--[if lt IE 9]>
+        <script src="~/scripts/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body id="grpAppBody" class="easyui-layout bodyfont">
+    <div class="appLoader"></div>
+    <div data-options="region:'north',border:true" class="topbottombg" style="height:60px;">
+        <table cellpadding="0" cellspacing="0" style="width:100%;padding-left:5px;padding-right:5px;">
+            <tr>
+                <td style="text-align:right;width:47%;">
+                    <h3 style="margin:5px 5px;">
+                        المملكة العربية السعودية<br />
+                        هيئة الهلال الأحمر السعودي
+                    </h3>
+                </td>
+                <td>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width:110px;">
+                                @if (Model.EnvironmentType == "T")
+                                {
+                                    <span class="appTestEnvTLbl" style="font-weight: bold;font-size:18px; color:#DE0000;">نسخة تجريبية</span>
+                                }
+                            </td>
+                            <td><img src="~/images/logosm.png" style="height:60px;width:60px;" /></td>
+                            <td style="width:105px;">
+                                @if (Model.EnvironmentType == "T")
+                                {
+                                    <span class="appTestEnvTLbl" style="font-weight: bold;font-size: 17px;color: #DE0000;">نسخة تجريبية</span>
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="text-align:left;width:40%;">
+                    <div style="margin-left: 15px;float:left;">
+                        @*<div>@Html.ActionLink("تسجيل خروج", "Logout", "User", null, new { @class = "easyui-linkbutton", @data_options = "size:'large'", style = "margin-right:5px;" })</div>*@
+                        <a id="pum" href="javascript:{}" class="easyui-menubutton" data-options="menu:'#um'"><img src="~/images/person.png" width="40" height="40" /></a>
+                        <div id="um" class="menu-content" style="background:#f0f0f0;padding:10px;text-align:right;width:130px;">
+                            <div><a href="javascript:{}" class="easyui-linkbutton" data-options="plain:true">إعدادات المستخدم</a></div>
+                            @if (Model.UserCanChangeLogin == true)
+                            {
+                                <script type="text/javascript">
+                                    function changeLoggedInUser() {
+                                        $.messager.prompt('تغيير تسجيل الدخول', 'ادخل اسم المستخدم المطلوب التغيير له', function (r) {
+                                            if (r) {
+                                                showProgress('#grpAppBody','الرجاء الانتظار, جاري تغيير المستخدم ...');
+                                                doAjax('User/ChangeLogin?lun=' + r, 'post', {}, 'application/json',
+                                                    function (result) {
+                                                        hideProgress('#grpAppBody');
+                                                        if (result.res > 0) {
+                                                            location.reload(true);
+                                                        }
+                                                        else { showAlert('خطأ أثناء تغيير تسجيل الدخول', result.msg, 'error'); }
+                                                    },
+                                                    function (error) {
+                                                        hideProgress('#grpAppBody');
+                                                        showAlert('خطأ أثناء تغيير تسجيل الدخول', error, 'error');
+                                                    }
+                                                );
+                                            }
+                                        });
+                                    }
+                                    function showErrDetails(btnObj) {
+                                        $('#wndLgErrDetails').text($(btnObj).attr('data-err'));
+                                        $('#wndLgErrDetails').window({
+                                            minimizable: false,
+                                            collapsible: false,
+                                            title: 'تفاصيل الخطأ',
+                                            width: 600,
+                                            height: 400,
+                                            modal: true
+                                        });
+                                    }
+                                </script>
+                                <div><a href="javascript:{}" class="easyui-linkbutton" data-options="plain:true" onclick="changeLoggedInUser()">تغيير المستخدم</a></div>
+                            }
+                            <div>@Html.ActionLink("تسجيل الخروج", "Logout", "User", null, new { @class = "easyui-linkbutton", @data_options = "plain:true" })</div>
+                        </div>
+                    </div>
+                    <div style="color:#fff;float:left;">
+                        @Model.UserFullName
+                        <br />
+                        @Model.UserDeptName
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-options="region:'south',border:true" class="topbottombg" style="height:40px;">
+        <div style="text-align:center;">
+            <h3 style="margin:8px 5px;">
+                الادارة العامه للإتصالات وتقنية المعلومات - هيئة الهلال الأحمر السعودي &copy;
+                @GRP.Web.Helpers.DateManager.GetCurrentHijriYear().ToString() هـ - @DateTime.Now.Year م
+            </h3>
+        </div>
+    </div>
+    <div id="divGSysAlert" style="width:300px;height:190px;padding:5px;"><div id="divGSysAlertText"></div></div>
+    <div id="divGSysAlertFt" style="padding:5px;text-align:center;">
+        <a class="easyui-linkbutton" href="javascript:void(0)" onclick="closeConfirm3BYNCEH('y')" style="width:80px">نعم</a>
+        <a class="easyui-linkbutton" href="javascript:void(0)" onclick="closeConfirm3BYNCEH('n')" style="width:80px">لا</a>
+        <a class="easyui-linkbutton" href="javascript:void(0)" onclick="closeConfirm3BYNCEH('c')" style="width:80px">إلغاء الأمر</a>
+    </div>
+    @*<div id="divGSysError" style="width:300px;height:190px;padding:5px;"><div id="divGSysErrorText"></div></div>
+    <div id="divGSysErrorFt" style="padding:5px;text-align:center;">
+        <a class="easyui-linkbutton" href="javascript:{}" onclick="closeError2BCSEEH('c')" style="width:80px">موافق</a>
+        <a class="easyui-linkbutton" href="javascript:{}" onclick="closeError2BCSEEH('se')" style="width:120px">إرسال الخطأ للدعم الفني</a>
+    </div>*@
+    @RenderBody()
+    <script src="~/scripts/jquery-2.2.1.min.js"></script>
+    @*<script src="~/scripts/jquery-migrate-1.2.1.js"></script>*@
+    <script src="~/scripts/js.cookie.js"></script>
+    <script src="~/jqplugins/eui/jQuery/jquery.easyui.min.js?v2"></script>
+    <script src="~/jqplugins/eui/jQuery/easyui-rtl.js?v2"></script>
+    <script src="~/jqplugins/eui/jQuery/easyui-lang-ar.js?v2"></script>
+    <script src="~/scripts/jquery.browser.min.js"></script>
+    <script src="~/scripts/jquery.blockUI.js"></script>
+    <script src="~/scripts/underscore-min.js"></script>
+    @RenderSection("scripts", false)
+    <script type="text/javascript">
+        $(window).load(function () { $(".appLoader").fadeOut("slow"); });
+        $(document).ready(function () {
+            $('#pum').menubutton({ menuAlign: 'left', menu: '#um' }); document.documentElement.setAttribute('data-useragent', navigator.userAgent);
+        }); //if ($('#spnTest')[0]) { blinkText('#spnTest'); } });
+    </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+﻿@model GRP.Models.LAW.Register.LawRegFormOpen
+<style type="text/css">
+    .datagrid-header-row td {
+        background: #d3e9d3;
+    }
+
+    .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+        font-size: 14px;
+    }
+
+    .datagrid-header .datagrid-cell span {
+        font-size: 14px;
+    }
+
+    .gapBigCheckBox {
+        width: 14px;
+        height: 14px;
+        margin-top: 3px;
+    }
+</style>
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="width:67%">
+        <div id="divLawInfo" class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',border:false" style="height:45%">
+                <table id="TblLawRegisterContainer" style="float:right;border-spacing:1px;overflow: auto; display: block;white-space: nowrap;">
+                    <tr>
+                        <td style="text-align:left;">سنة الطلب</td>
+                        <td>
+                            <input id="CaseYear" class="easyui-numberbox" data-options="editable:false" style="width:70px;" value="@DateTime.Now.Year" />
+                        </td>
+
+                        <td style="text-align:left;">رقم المسلسل</td>
+                        <td>
+                            <input id="CaseSerial" class="easyui-numberbox" data-options="editable:false" style="width:100px;" />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="text-align:left;">تاريخ القضية</td>
+                        <td>
+                            <input id="txtLAWDateH" class="easyui-hdatebox" data-options="editable:true, onChange:TxtCaseReqYearHjChange" style="width:100px;" />
+                            <input id="txtLAWDateG" class="easyui-datebox" data-options="editable:true, onChange:TxtCaseReqYearGrgChange" style="width:100px;" />
+                        </td>
+
+                        <td style="text-align:left;">الفرع</td>
+                        <td>
+                            <select id="ddlCaseBranch" class="easyui-combobox" data-options="editable:true" style="width:202px;">
+                                <option></option>
+                                @foreach (var brnch in Model.branches)
+                                {
+                                <option value="@brnch.SRL_ID">@brnch.DEPT_NAME</option>
+                                }
+                            </select>
+                        </td>
+
+                        <td style="text-align:left;">النوع:</td>
+                        <td>
+                            &nbsp;
+                            <input type="radio" name="rbLawType" id="rbLawType1" value="0" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawType1">ضد الهيئة</label>
+                            &nbsp;
+                            <input type="radio" name="rbLawType" id="rbLawType2" value="1" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawType2">من الهيئة</label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">قطاع المحكمة:</td>
+                        <td>
+                            &nbsp;
+                            <input type="radio" name="rLawCourtDistrict" id="rbLawCourtDistrict1" value="1" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawCourtDistrict1">محاكم ديوان المظالم</label>
+                            <br />
+                            &nbsp;
+                            <input type="radio" name="rLawCourtDistrict" id="rbLawCourtDistrict2" value="2" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawCourtDistrict2">محاكم وزارة العدل</label>
+                            <br />
+                            @*&nbsp;
+                            <input type="radio" name="rLawCourtDistrict" id="rbLawCourtDistrict3" value="3" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawCourtDistrict3">أخرى</label>*@
+                        </td>
+                        <td style="text-align:left;">
+                            المحكمة
+                            <br />
+                            المحكمة
+                            @*<br />
+                            أخرى*@
+                        </td>
+                        <td>
+                            <select id="ddlCourtName1" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;">
+                                <option></option>
+                                @foreach (var GCourt in Model.GCourtNames)
+                                {
+                                <option value="@GCourt.CODE_ID">@GCourt.CODE_NAME</option>
+                                }
+                            </select>
+                            <br />
+                            <select id="ddlCourtName2" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;">
+                                <option></option>
+                                @foreach (var JCourt in Model.JCourtNames)
+                                {
+                                <option value="@JCourt.CODE_ID">@JCourt.CODE_NAME</option>
+                                }
+                            </select>
+                            @*<br />
+                            <input id="txtCourtOthers" class="easyui-textbox" data-options="editable:false" style="column-span:inherit" />*@
+                        </td>
+                        <td style="text-align:left;">
+                            المدينة
+                            <br />
+                            المدينة
+                        </td>
+                        <td>
+                            <select id="ddlCourtCity1" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;">
+                                <option></option>
+                                @foreach (var city in Model.CourtCity)
+                                {
+                                <option value="@city.CODE_ID">@city.CODE_NAME</option>
+                                }
+                            </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>الدائرة</label>
+                            <input id="txtDistrictName1" class="easyui-textbox" data-options="editable:false" style="width:100px;" />
+
+                            <br />
+                            <select id="ddlCourtCity2" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;">
+                                <option></option>
+                                @foreach (var city in Model.CourtCity)
+                                {
+                                <option value="@city.CODE_ID">@city.CODE_NAME</option>
+                                }
+                            </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>الدائرة</label>
+                            <input id="txtDistrictName2" class="easyui-textbox" data-options="editable:false" style="width:100px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;visibility:hidden"></td>
+                        <td>
+                            @*&nbsp;
+                            <input type="radio" name="rLawCourtDistrict" id="rbLawCourtDistrict4" value="4" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawCourtDistrict4">الدائرة</label>
+                            <br />*@
+                            &nbsp;
+                            <input type="radio" name="rLawCourtDistrict" id="rbLawCourtDistrict3" value="3" class="lawregBigRadioBtn" />
+                            <label class="lawregBigRadioBtn" for="rbLawCourtDistrict3">أخرى</label>
+                        </td>
+                        <td style="text-align:left;">
+                            @*رقم الدائرة
+                            <br />*@
+                            أخرى
+                        </td>
+                        <td colspan="3">
+                            @*<input id="txtDistrictName" class="easyui-textbox" data-options="editable:false" style="width:465px;" />
+                            <br />*@
+                            <input id="txtCourtOthers" class="easyui-textbox" data-options="editable:false" style="width:465px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">نوع المحكمة:</td>
+                        <td>
+                            &nbsp;
+                            <input type="radio" name="rbCourtType" id="rbCourtType1" value="1" class="lawregbigradiobtn" />
+                            <label class="lawregbigradiobtn" for="rbCourtType1">إبتدائية</label>
+                            &nbsp;
+                            <input type="radio" name="rbCourtType" id="rbCourtType2" value="2" class="lawregbigradiobtn" />
+                            <label class="lawregbigradiobtn" for="rbCourtType2">استئناف</label>
+                            &nbsp;
+                            <input type="radio" name="rbCourtType" id="rbCourtType3" value="3" class="lawregbigradiobtn" />
+                            <label class="lawregbigradiobtn" for="rbCourtType3">العليا</label>
+                        </td>
+
+                        <td colspan="4">
+                            <fieldset style="height:30px;">
+                                <legend></legend>
+                                <div>
+                                    &nbsp;
+                                    <label>رقم القضية</label>
+                                    <input id="txtLawCaseSerial" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                                    &nbsp;
+                                    <label>رقم القضية بالإستئناف</label>
+                                    <input id="txtLawCaseAppealSerial" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                                    &nbsp;
+                                    <label>رقم القضية بالمحكمة العليا</label>
+                                    <input id="txtLawCaseHighCSerial" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                                </div>
+                                @*<div>
+                                    <input type="checkbox" id="chkLinkCase" name="LinkCase" class="gapBigCheckBox" onclick="LinkPrevCase()" />
+                                    <label for="LinkCase">ربط بقضية سابقة</label>
+                                    &nbsp;
+                                </div>
+                                <div>
+                                    <label>إختر القضية</label>
+                                    <input id="ddlCgPrevCases" data-options="disabled:true" style="width:205px;" />
+                                    &nbsp;
+                                    &nbsp;
+                                    <label>السنة</label>
+                                    <input id="txtCPrevCaseYr" class="easyui-textbox" data-options="disabled:true" style="width:40px;" />
+                                    <label>المسلسل</label>
+                                    <input id="txtCPrevSrl" class="easyui-textbox" data-options="disabled:true" style="width:50px;" />
+                                    <label>القضية</label>
+                                    <input id="txtCPrevCaseNo" class="easyui-textbox" data-options="disabled:true" style="width:100px;" />
+                                </div>*@
+                            </fieldset>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chkLinkCase" name="LinkCase" class="gapBigCheckBox" onclick="LinkPrevCase()" />
+                            <label for="LinkCase">ربط بقضية سابقة</label>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </td>
+                        <td>
+                            <div id="divCaseLinkCombogrid">
+                                <fieldset style="width:350px;">
+                                    <legend>القضية المرتبطة</legend>
+                                    <div>
+                                        <label>إختر القضية</label>
+                                        <input id="ddlCgPrevCases" data-options="disabled:true" style="width:276px;" />
+                                        <br />
+                                        &nbsp;
+                                        &nbsp;
+                                        <label>السنة</label>
+                                        <input id="txtCPrevCaseYr" class="easyui-textbox" data-options="disabled:true" style="width:40px;" />
+                                        <label>المسلسل</label>
+                                        <input id="txtCPrevSrl" class="easyui-textbox" data-options="disabled:true" style="width:50px;" />
+                                        <label>القضية</label>
+                                        <input id="txtCPrevCaseNo" class="easyui-textbox" data-options="disabled:true" style="width:120px;" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td style="text-align:left;">حالة القضية</td>
+                        <td>
+                            <select id="ddlLawStatusType" class="easyui-combobox" data-options="editable:true,selectOnNavigation:false" style="width:202px;">
+                                @foreach (var cStatus in Model.caseStatus)
+                                {
+                                <option value="@cStatus.CODE_ID">@cStatus.CODE_NAME</option>
+                                }
+                            </select>
+                        </td>
+
+                        <td style="text-align:left;">
+                            حالة الحكم
+                            <br />
+                            <label id="lblJudgmentStatusOthers" style="display:none">أخرى</label>
+                        </td>
+                        <td>
+                            <select id="ddlRulingStatus" class="easyui-combobox" data-options="editable:true,selectOnNavigation:false" style="width:202px;">
+                                <option></option>
+                                @foreach (var jStatus in Model.JdgmntStatus)
+                                {
+                                <option value="@jStatus.CODE_ID">@jStatus.CODE_NAME</option>
+                                }
+                            </select>
+
+                            <br />
+                            <div id="divJudgmentStatusOthers">
+                                <input id="txtJudgmentSatusOthers" class="easyui-textbox" data-options="editable:true, required:true" style="width:202px;" />
+                            </div>
+                        </td>
+
+                        @*
+                        <td style="text-align:left;">أخرى</td>
+                        <td>
+                            <input id="txtJudgmentSatusOthers" class="easyui-textbox" data-options="editable:true" style="width:202px;" />
+                        </td>*@
+
+                        <td style="text-align:left;">ممثل الهيئة</td>
+                        <td>
+                            <input id="txtNameOfSrcaRep" style="width:450px;" />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="text-align:left;">طبيعة المدعي/ المدعي عليه</td>
+                        <td>
+                            <select id="ddlTypeOfAccusedOrDefendant" class="easyui-combobox" data-options="editable:true,selectOnNavigation:false" style="width:202px;">
+                                <option>@String.Empty</option>
+                                @foreach (var dType in Model.DfndtType)
+                                {
+                                <option value="@dType.CODE_ID">@dType.CODE_NAME</option>
+                                }
+                            </select>
+                        </td>
+
+                        <td style="text-align:left;">إسم المدعي/ المدعي عليه</td>
+                        <td colspan="3">
+                            <input id="txtNameOfAccusedOrDefendant" style="width:50%;" />
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td style="text-align:left;">وصف القضية</td>
+                        <td colspan="5">
+                            <input id="txtCaseDesc" class="easyui-textbox" data-options="multiline:true" style="width:50%;height:50px" />
+                        </td>
+
+                        <td>
+                            <a href="javascript:void(0)" id="btnAddSession" class="easyui-linkbutton" data-options="iconCls:'icon-add',width:100,height:50,disabled:true" onclick="DisplayNewLawSessionScreen()">إضافة جلسة</a>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div data-options="region:'center',border:false">
+                <table id="tblCaseSessions" class="easyui-datagrid" data-options="fit:true,remoteSort:false,singleSelect:true,title:'قائمة الجلسات',onLoadSuccess:LawSessionListOnLoadSuccess">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'rqYr',hidden:true"></th>
+                            <th data-options="field:'SESSION_ID',width:80,align:'center'">رقم الجلسة</th>
+                            <th data-options="field:'SESSION_DATE_H',width:120,align:'center'">تاريخ الجلسة (هـ)</th>
+                            @*
+                            <th data-options="field:'SESSION_DATE_G',width:120,align:'center'">تاريخ الجلسة (م)</th>*@
+                            <th data-options="field:'SESSION_STATUS_DESC',width:85,align:'center'">حالة الجلسة</th>
+                            @*
+                            <th data-options="field:'EmpName',width:250,align:'center'">الموظف المختص</th>*@
+                            
+                            @*<th data-options="field:'THE_COURT',width:200,align:'center'">الدائرة</th>*@
+                            <th data-options="field:'SESSION_DAY',width:100,align:'center'">اليوم</th>
+                            <th data-options="field:'SESSION_TIME',width:100,align:'center'">الساعة</th>
+                            <th data-options="field:'SESSION_NOTES',width:250,align:'center'">ملاحظات</th>
+                            @*
+                            <th data-options="field:'IS_ATTEND',width:90,align:'center'">حضر/ لم يحضر</th>*@
+                            <th data-options="field:'Details',width:55,align:'center',formatter:LawSessionDetailsFormatter"></th>
+                            @*
+                            <th data-options="field:'printSession',width:50,align:'center',formatter:SessionDetailsPrintSessionFormatter"></th>
+                            <th data-options="field:'sendEmailToMgr',width:50,align:'center',formatter:SessionDetailsSendEmailToMgrFormatter"></th>*@
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @Html.Action("SessionReg", "Register", new { wndId = "dAddNewSessionForm", wndTitle = "إضافة جلسة جديدة" })
+            @Html.Action("SearchForm", "Register", new { wndId = "dLawSearchForm", wndTitle = "إنشاء بحث", SrchGridSelect = "LawRegSearchResult" })
+            @Html.Action("SessionDetails", "Register", new { wndId = "dSessionDetailsForm", wndTitle = "تفاصيل الجلسة" })
+
+            <div data-options="region:'south'" style="text-align:center;height:58px;overflow-y:hidden;">
+                <div style="padding:0 15px;margin-bottom:1px;">
+                    <div style="text-align:center;">
+                        مدخل البيانات: <input id="txtLAWRegCBy" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                        &nbsp;
+                        تاريخ الإدخال : <input id="txtLAWRegCDt" class="easyui-textbox" data-options="editable:false" style="width:125px;" />
+                        &nbsp;&nbsp;&nbsp;
+                        معدل البيانات : <input id="txtLAWRegUBy" class="easyui-textbox" data-options="editable:false" style="width:150px;" />
+                        &nbsp;
+                        تاريخ التعديل : <input id="txtLAWRegUDt" class="easyui-textbox" data-options="editable:false" style="width:125px;" />
+                    </div>
+                </div>
+                <div class="easyui-panel" style="width:200px" data-options="cls:'inlinePanel'">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="NewCaseFormRequest()">جديد</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="SaveLawCaseMasterData()">حـفظ</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-removeRed'" onclick="">حـذف</a>
+                </div>
+
+                <div class="easyui-panel" style="width:680px;" data-options="cls:'inlinePanel'">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="doLawRegSearch()">إنشاء بحث</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-filter',disabled:true">تنفيذ البحث</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',disabled:true">إلغاء البحث</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-lastRecord',disabled:true">السجل الأول</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-nextRecord',disabled:true">السجل السابق</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-previousRecord',disabled:true">السجل التالي</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-firstRecord',disabled:true">السجل الأخير</a>
+                </div>
+
+                <div class="easyui-panel" style="width:75px;" data-options="cls:'inlinePanel'">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-print'" onclick="">طباعه</a>
+                </div>
+                <div class="easyui-panel" style="width:75px;" data-options="cls:'inlinePanel'">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-exit'" onclick="closeLawRegForm()">خروج</a>
+                </div>
+            </div>
+            @*<div id="wndLawSessionDetailInfo" class="easyui-window" style="width:93%;height:500px;padding:1px;" data-options="iconCls:'icon-more',modal:false,collapsible:false,minimizable:false,maximizable:false,closable:true,closed:true"></div>*@
+        </div>
+    </div>
+</div>
+<script src="~/Areas/LAW/scripts/Register/LawReg.js"></script>

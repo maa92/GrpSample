@@ -1,0 +1,233 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/styles/app.css" rel="stylesheet" />
+    <link href="~/styles/tstyle.css" rel="stylesheet" />
+</head>
+<body style="width:98.3%;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="widget widget-blue">
+                <div class="widget-title">
+                    <div class="widget-controls">
+                        <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+                            <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="icon-cog-5"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+                                <li class="dropdown-header">تغيير لون الواجهة</li>
+                                <li><a data-widget-color="blue" class="set-widget-color" href="#">أزرق</a></li>
+                                <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+                                <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+                                <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+                                <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="icon-arrows-cw"></i></a>
+                        <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="icon-minus-circled-1"></i></a>
+                    </div>
+                    <h3><i class="icon-desktop"></i>موظفي الادارة</h3>
+                </div>
+                <div class="widget-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div id="gauge-red" style="height: 90px"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="gauge-green" style="height: 90px"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="gauge-blue" style="height: 90px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="widget widget-blue" id="widget_stats">
+                <div class="widget-title">
+                    <div class="widget-controls">
+                        <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+                            <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="icon-cog-5"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+                                <li class="dropdown-header">تغيير لون الواجهة</li>
+                                <li><a data-widget-color="blue" class="set-widget-color" href="#">أزرق</a></li>
+                                <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+                                <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+                                <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+                                <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="icon-arrows-cw"></i></a>
+                        <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="icon-minus-circled-1"></i></a>
+                    </div>
+                    <h3><i class="icon-bar-chart"></i>احصائيات الوظائف</h3>
+                </div>
+                <div class="widget-content">
+                    @*<div class="shadowed-bottom">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="white-block clearfix">
+                                        <div class="value-block changed-up-border pull-left changed-up">
+                                            <div class="value-self">
+                                                910
+                                                        <span class="changed-icon"><i class="icon-caret-up"></i></span>
+                                                <span class="changed-value">+2.00%</span>
+                                            </div>
+                                            <div class="value-sub value-sub-bigger">Products Sold</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="white-block clearfix">
+                                        <div class="value-block changed-down-border pull-left changed-down">
+                                            <div class="value-self">
+                                                320
+                                                        <span class="changed-icon"><i class="icon-caret-down"></i></span>
+                                                <span class="changed-value">+5.00%</span>
+                                            </div>
+                                            <div class="value-sub value-sub-bigger">New Users</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div id="areachart-small" style="height: 150px;"></div>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-md-6">
+                <div class="widget widget-blue">
+                    <div class="widget-title">
+                        <div class="widget-controls">
+                            <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+                                <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="icon-cog-5"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li class="dropdown-header">تغيير لون الواجهة</li>
+                                    <li><a data-widget-color="blue" class="set-widget-color" href="#">أزرق</a></li>
+                                    <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+                                    <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+                                    <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+                                    <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="icon-arrows-cw"></i></a>
+                            <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="icon-minus-circled-1"></i></a>
+                        </div>
+                        <h3><i class="icon-bar-chart"></i>الموقف المالي</h3>
+                    </div>
+                    <div class="widget-content">
+
+                        <div class="shadowed-bottom">
+                                <div class="row">
+                                    <div class="col-sm-4 bordered">
+                                        <div class="value-block text-center">
+                                            <div class="value-self">1,120</div>
+                                            <div class="value-sub">Total Visitors</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <form class="form-inline form-period-selector">
+                                            <label class="control-label">Time Period:</label><br>
+                                            <input type="text" placeholder="01/12/2011" class="form-control input-sm input-datepicker">
+                                            <input type="text" placeholder="01/12/2011" class="form-control input-sm input-datepicker">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="padded">
+                            <div id="users_barchart" style="height: 330px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+
+    <br />
+    <div class="widget widget-blue" id="widget_profit_chart">
+        <div class="widget-title">
+            <div class="widget-controls">
+                <div class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="icon-cog-5"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+                        <li class="dropdown-header">تغيير لون الواجهة</li>
+                        <li><a data-widget-color="blue" href="#">أزرق</a></li>
+                        <li><a data-widget-color="red" href="#">Red</a></li>
+                        <li><a data-widget-color="green" href="#">Green</a></li>
+                        <li><a data-widget-color="orange" href="#">Orange</a></li>
+                        <li><a data-widget-color="purple" href="#">Purple</a></li>
+                        <li><a data-widget-color="Grey" href="#">Grey</a></li>
+                        <li><a data-widget-color="Dark Grey" href="#">Dark Grey</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="widget-control widget-control-refresh"><i class="icon-arrows-cw"></i></a>
+                <a href="#" class="widget-control widget-control-minimize"><i class="icon-minus-circled-1"></i></a>
+            </div>
+            <h3><i class="icon-bar-chart"></i>احصائيات مالية</h3>
+        </div>
+        <div class="widget-content">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">ساعة</a></li>
+                <li><a href="#">يومي</a></li>
+                <li><a href="#">شهري</a></li>
+                <li class="hidden-xs"><a href="#">سنوي</a></li>
+            </ul>
+            <div class="widget-content-tp">
+                <div class="padded-no-sides">
+                    <div id="areachart" style="height: 250px;"></div>
+                </div>
+                @*<div class="shadowed-top top-margin">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5 col-sm-6 bordered">
+                                <div class="value-block value-bigger changed-up some-left-padding changed-up-border">
+                                    <div class="value-self">
+                                        $5,450
+                                                <span class="changed-icon"><i class="icon-caret-up"></i></span>
+                                        <span class="changed-value">+5.00%</span>
+                                    </div>
+                                    <div class="value-sub">Average of $450.35 Per Day</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 visible-md visible-lg bordered">
+                                <div class="value-block text-center">
+                                    <div class="value-self">520</div>
+                                    <div class="value-sub">Total Sales</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 bordered visible-lg">
+                                <div class="value-block text-center">
+                                    <div class="value-self">1,120</div>
+                                    <div class="value-sub">Total Visitors</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <form class="form-inline form-period-selector">
+                                    <label class="control-label">Time Period:</label><br>
+                                    <input type="text" placeholder="01/12/2011" class="form-control input-sm input-datepicker">
+                                    <input type="text" placeholder="01/12/2011" class="form-control input-sm input-datepicker">
+                                </form>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/justgage.js"></script>
+    <script src="~/scripts/raphael-2.1.4.min.js"></script>
+    <script src="~/scripts/charts.js"></script>
+    <script src="~/scripts/madcog.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#gauge-red').find('text').find('tspan').css('font-size', '20px');
+            $('#gauge-green').find('text').find('tspan').css('font-size', '20px');
+            $('#gauge-blue').find('text').find('tspan').css('font-size', '20px');
+        });
+    </script>
+</body>
+</html>

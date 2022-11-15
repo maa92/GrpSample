@@ -1,0 +1,37 @@
+﻿.clock-wrapper{
+	/*padding:15px 5px;*/
+	margin:0;
+	/*font-family:'PT sans';*/
+	text-align:center;
+	-webkit-transition-duration: .1s; 
+	-moz-transition-duration: .1s; 
+	-o-transition-duration: .1s; 
+	-transition-duration: .1s;      
+	animation-timing-function: ease-in-out; 
+    -webkit-animation-timing-function: ease-in-out;	
+
+    background-image:url(img/bg.png);
+	text-rendering: optimizeLegibility;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	
+	background-repeat:no-repeat;
+	background-position:center center;
+	/*-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    background-size:50% 50%;*/
+    /*background-attachment:fixed;*/
+}
+
+.clock-container{
+	width:100%;
+	display:inline-block;
+	vertical-align:middle;
+	text-align:center;
+}
+
+.clock{
+	display:inline;
+}

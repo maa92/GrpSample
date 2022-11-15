@@ -1,0 +1,11 @@
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\obj\Debug\GRP.DataAccess.csprojResolveAssemblyReference.cache
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\GRP.DataAccess.exe.config
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\GRP.DataAccess.exe
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\GRP.DataAccess.pdb
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\GRP.Models.exe
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\Oracle.DataAccess.dll
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\Newtonsoft.Json.dll
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\GRP.Models.pdb
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\bin\Debug\Newtonsoft.Json.xml
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\obj\Debug\GRP.DataAccess.exe
+c:\users\srca70098\documents\visual studio 2015\Projects\GrpSample\GRP.DataAccess\obj\Debug\GRP.DataAccess.pdb

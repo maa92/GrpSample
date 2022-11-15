@@ -1,0 +1,196 @@
+﻿@font-face {
+    font-family: 'NotoNAUI';
+    src: url(../fonts/NotoNAUI.woff) format('woff');
+    /*,url(../fonts/NotoNAUI.ttf) format('truetype'),
+    url(../fonts/NotoNAUI.eot) format('embedded-opentype'),
+    url(../fonts/NotoNAUI.eot?#iefix) format('embedded-opentype');*/
+}
+
+@font-face {
+    font-family: 'NotoNAUI';
+    src: url(../fonts/NotoNAUIB.woff) format('woff'); 
+    /*, url(../fonts/NotoNAUIB.ttf) format('truetype'),     
+    url(../fonts/NotoNAUIB.eot) format('embedded-opentype'),
+    url(../fonts/NotoNAUIB.eot?#iefix) format('embedded-opentype');*/
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'hslui';
+    src: url(../fonts/hlp.woff) format('woff'); 
+    /*,url(../fonts/NotoNAUI.ttf) format('truetype'),
+    url(../fonts/NotoNAUI.eot) format('embedded-opentype'),
+    url(../fonts/NotoNAUI.eot?#iefix) format('embedded-opentype');*/
+}
+
+@font-face {
+    font-family: 'hslui';
+    src: url(../fonts/hlsBd.woff) format('woff'); 
+    /*, url(../fonts/NotoNAUIB.ttf) format('truetype'),     
+    url(../fonts/NotoNAUIB.eot) format('embedded-opentype'),
+    url(../fonts/NotoNAUIB.eot?#iefix) format('embedded-opentype');*/
+    font-weight: bold;
+}
+
+body {
+    direction: rtl;
+    font-family: NotoNAUI,Tahoma,verdana,arial,sans-serif;
+    padding: 10px;
+    font-size: 15px;
+    margin: 0;
+}
+
+[data-useragent*='MSIE 10.0'] body {
+    font-family: hslui,Tahoma,verdana,arial,sans-serif;
+    font-size: 16px;
+}
+
+.appLoader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../images/appLoading.gif') 50% 50% no-repeat rgb(249,249,249);
+}
+
+.topbottombg {
+    background:#A7C0DC;
+    /*sky*/
+    /*background: #AED0EA;
+    background: -moz-linear-gradient(top, #AED0EA 0,#8FCCF8 50%,#D6F3FE 100%);
+    background: -webkit-linear-gradient(top, #AED0EA 0,#8FCCF8 50%,#D6F3FE 100%);
+    background: -o-linear-gradient(top, #AED0EA 0,#8FCCF8 50%,#D6F3FE 100%);
+    background: -ms-linear-gradient(top, #AED0EA 0,#8FCCF8 50%,#D6F3FE 100%);*/
+
+    /*background: #aaabad;
+    background: -moz-linear-gradient(top, #cccccc 0,#bebfbf 50%,#aaabad 100%);
+    background: -webkit-linear-gradient(top, #cccccc 0,#bebfbf 50%,#aaabad 100%);
+    background: -o-linear-gradient(top, #cccccc 0,#bebfbf 50%,#aaabad 100%);
+    background: -ms-linear-gradient(top, #cccccc 0,#bebfbf 50%,#aaabad 100%);*/
+    /*Greeb stuff*/
+    /*background: -webkit-linear-gradient(top,  #beff95 0,#7bb564 50%,#3d812c 100%);*/
+    overflow: hidden;
+    /*style="height:60px;background-color:#383c3f;color:#fff;overflow: hidden;"*/
+}
+
+*,
+*:before,
+*:after {
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.panel-body {
+    font-size: 14px;
+}
+
+.panel-title {
+    font-size: 14px;
+}
+
+.tree-title {
+    font-size: 14px;
+}
+
+.tabs-title {
+    font-size: 14px;
+}
+.l-btn-text {
+    font-size: 14px;
+}
+
+.textbox-text {
+    font-size: 14px;
+}
+
+.inlinePanel{
+    display:inline-block !important;
+}
+
+.inlinePanel .panel-body{
+    padding:1px;
+}
+
+.editableInputBg, .textbox-text {
+    background:#c3daeb;
+}
+
+.readonlyInputBg, .validatebox-readonly, .validatebox-disabled {
+    background: #d3e9d3;
+}
+
+.centerText .textbox .textbox-text {
+    text-align: center;
+}
+
+/*.datagrid-header .datagrid-cell span {
+    font-size:14px;
+}*/
+
+span.textbox.easyui-fluid {
+    width: 100% !important;
+}
+
+    span.textbox.easyui-fluid > input.validatebox-readonly {
+        width: 100% !important;
+    }
+
+.layout-expand-west .panel-body .layout-expand-title .m-badge {
+    margin-left: 15px;
+    margin-right: -10px;
+    margin-top: -1px;
+    font-size:inherit !important;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform: rotate(-90deg);
+    -moz-transform-origin: 0 0;
+    -o-transform: rotate(-90deg);
+    -ms-transform-origin: 0% 100%;
+    -ms-transform: rotate(-90deg);
+    transform-origin: 0% 100%;
+    -o-transform-origin: 0 0;
+    transform: rotate(-90deg);
+}
+
+.easyui-accordion .accordion-header .panel-title .m-badge {
+    float: left;
+    margin-left: 17px;
+    font-size: 11px;
+}
+
+/*.panel-header {
+    background: linear-gradient(to bottom, #3498db 0%, #258cd1 100%);
+}
+
+.spTitle .panel .panel-header .panel-title {
+    color: #fff;
+}
+
+.layout-split-east .panel-header .panel-title {
+    color: #fff;
+}
+
+.layout-split-west .panel-header .panel-title {
+    color: #fff;
+}
+
+.layout-split-west .easyui-accordion .panel-header .panel-title {
+    color:#0E2D5F;
+}*/
+
+/*span, object, iframe,
+h1, h2, h3, h4, h5, h6, p {
+    margin:0;
+}
+input{
+    font-family:NotoNAUI,Tahoma,verdana,arial,sans-serif;
+    font-size:14px;
+}
+table{
+    font-family:NotoNAUI,Tahoma,verdana,arial,sans-serif;
+    font-size:14px;
+}*/

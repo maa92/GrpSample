@@ -1,0 +1,151 @@
+﻿<div id='@ViewData["wndId"]' class="easyui-window" title='@ViewData["wndTitle"]' data-options="closed:true,modal:true,inline:true,collapsible:false,minimizable:false,onOpen:openLawSrchForm,iconCls:'icon-search'" style="width:75%;height:540px;">
+    <div id="@string.Format("{0}_{1}","LawRegSearchContainer", ViewData["wndId"])">
+        <table>
+            <tr>
+                <td style="text-align:left;">السنة</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "txtCaseYear", ViewData["wndId"])" class="easyui-numberbox" style="width:50px;" data-options="editable:true, required:true, onChange:TxtYearGrgChange" />
+                    <input id="@string.Format("{0}_{1}", "txtCaseYearHj", ViewData["wndId"])" class="easyui-numberbox" style="width:48px;" data-options="editable:true, required:true, onChange:TxtYearHjChange" />
+                </td>
+
+                <td style="text-align:left;">رقم المسلسل</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "numCaseSerial", ViewData["wndId"])" class="easyui-numberbox" style="width:100px;" />
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align:left;">رقم القضية</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "txtCaseNo", ViewData["wndId"])" class="easyui-textbox" style="width:100px;" />
+                </td>
+
+                <td style="text-align:left;">تاريخ القضية</td> @*@string.Format("{0}_{1}", "txtLawSearchDateH", ViewData["wndId"])*@
+                <td>
+                    <input id="txtLawSearchDateH" class="easyui-hdatebox" data-options="editable:true, onChange:TxtCaseSearchYearHjChange" style="width:100px;" />
+                    <input id="txtLawSearchDateG" class="easyui-datebox" data-options="editable:true, onChange:TxtCaseSearchYearGrgChange" style="width:100px;" />
+                </td>
+
+                <td style="text-align:left;">النوع</td>
+                <td>
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCaseSrchType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCaseSrchType1", ViewData["wndId"])" value="0" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCaseSrchType1", ViewData["wndId"])">ضد الهيئة</label>
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCaseSrchType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCaseSrchType2", ViewData["wndId"])" value="1" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCaseSrchType2", ViewData["wndId"])">من الهيئة</label>
+                </td>
+
+                <td rowspan="4">
+                    <a id="@string.Format("{0}_{1}", "btnSearchForCases", ViewData["wndId"])" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',iconAlign:'top',width:100,height:100" onclick="doCaseSearchFromSearchWnd(this)">بحث</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left;">حالة القضية</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "ddlCaseStatus", ViewData["wndId"])" class="easyui-combobox" data-options="valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;" />
+                </td>
+
+                <td style="text-align:left;">حالة الحكم</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "ddlCaseRuling", ViewData["wndId"])" class="easyui-combobox" data-options="valueField:'CODE_ID',textField:'CODE_NAME'" style="width:203px;" />
+                </td>
+
+                <td style="text-align:left;">الفرع</td>
+                <td>
+                    <input id="@string.Format("{0}_{1}", "ddlBranch", ViewData["wndId"])" class="easyui-combobox" data-options="valueField:'SRL_ID',textField:'DEPT_NAME'" style="width:200px;" />
+                </td>
+
+
+            </tr>
+            <tr>
+                <td style="text-align:left;">قطاع المحكمة:</td>
+                <td>
+                    &nbsp;
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCourtDistrictType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCourtDistrictType1", ViewData["wndId"])" value="1" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCourtDistrictType1", ViewData["wndId"])">محاكم ديوان المظالم</label>
+                    <br />
+                    &nbsp;
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCourtDistrictType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCourtDistrictType2", ViewData["wndId"])" value="2" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCourtDistrictType2", ViewData["wndId"])">محاكم وزارة العدل</label>
+                    <br />
+                    @*&nbsp;
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCourtDistrictType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCourtDistrictType4", ViewData["wndId"])" value="4" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCourtDistrictType4", ViewData["wndId"])">الدائرة</label>
+                    <br />*@
+                    &nbsp;
+                    <input type="radio" name="@string.Format("{0}_{1}","rbCourtDistrictType", ViewData["wndId"])" id="@string.Format("{0}_{1}","rbCourtDistrictType3", ViewData["wndId"])" value="3" class="lawregBigRadioBtn" />
+                    <label class="lawregBigRadioBtn" for="@string.Format("{0}_{1}","rbCourtDistrictType3", ViewData["wndId"])">أخرى</label>
+                </td>
+                <td style="text-align:left;">
+                    المحكمة
+                    <br />
+                    المحكمة
+                    <br />
+
+
+                </td>
+
+                <td>
+                    <input id="@string.Format("{0}_{1}", "ddlCourtName1", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;" />
+                    <br />
+                    <input id="@string.Format("{0}_{1}", "ddlCourtName2", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;" />
+
+
+                </td>
+
+                <td style="text-align:left;">
+                    المدينة
+                    <br />
+                    المدينة
+
+                </td>
+
+                <td>
+                    <input id="@string.Format("{0}_{1}", "ddlCourtCity1", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;" />
+                    <br />
+                    <input id="@string.Format("{0}_{1}", "ddlCourtCity2", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true, valueField:'CODE_ID',textField:'CODE_NAME'" style="width:200px;" />
+
+                </td>
+                @*<td style="text-align:left;">قطاع المحكمة</td>
+                    <td>
+                        <input id="@string.Format("{0}_{1}", "ddlCourtSect", ViewData["wndId"])" class="easyui-combobox" style="width:200px;" />
+                    </td>
+
+                    <td style="text-align:left;">المحكمة</td>
+                    <td>
+                        <input id="@string.Format("{0}_{1}", "ddlCourtName", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true" style="width:200px;" />
+                    </td>
+
+                    <td style="text-align:left;">المدينة</td>
+                    <td>
+                        <input id="@string.Format("{0}_{1}", "ddlCourtCity", ViewData["wndId"])" class="easyui-combobox" data-options="editable:false, disabled:true" style="width:200px;" />
+                    </td>*@
+
+            </tr>
+            <tr>
+                <td>ممثل الهيئة</td>
+                <td colspan="5">
+                    <input id="@string.Format("{0}_{1}", "ddlSrcaRep", ViewData["wndId"])" class="easyui-combobox" data-options="editable:true, valueField:'eId',textField:'eNm',mode: 'remote',loader:lawEmpLoader" style="width:50%;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="overflow-x:hidden;">
+        <table id="@string.Format("{0}_{1}", "tblLawSearchFrmResult", ViewData["wndId"])" class="easyui-datagrid" style="width:100%"
+               data-options='fitColumns:true,singleSelect:true,remoteSort:false,emptyMsg:"لا يوجد قضيات وفق معايير البحث المحددة",pagination:true,url:"LAW/Register/SearchForCases",onBeforeLoad:tblLawResultBrforeLoad,onLoadSuccess:tblLawResultLoadSuccess,onLoadError:tblLawResultLoadError,onDblClickRow:@ViewData["SrchGridSelect"]'>
+            <thead>
+                <tr>
+                    <th data-options="field:'CASE_YEAR', width:15,align:'center'">السنة</th>
+                    <th data-options="field:'CASE_SERIAL',width:15,align:'center'">المسلسل</th>
+                    <th data-options="field:'CASE_NO',width:30,align:'center'">رقم القضية</th>
+                    <th data-options="field:'CASE_HDATE', width:30,align:'center'">تاريخ القضية(هـ)</th>
+                    <th data-options="field:'CASE_TYPE_DESC', width:20,align:'center', valueField:'CODE_ID', textField:'CODE_NAME'">النوع</th>
+                    <th data-options="field:'CASE_STATUS', width:30,align:'center'">حالة القضية</th>
+                    <th data-options="field:'JUDGEMENT_STATUS', width:30,align:'center'">حالة الحكم</th>
+                    <th data-options="field:'DEFENDANT_TYPE',hidden:true"></th>
+                    <th data-options="field:'CaseDesc', width:100,align:'center'">وصف القضية</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="~/Areas/LAW/scripts/Register/LawRegSearch.js"></script>

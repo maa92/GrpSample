@@ -1,0 +1,46 @@
+﻿@using GRP.Models.System
+@model HomePage
+@{ ViewBag.Title = "الصفحة الرئيسية"; }
+@*<link href="~/jqplugins/clock/clock.css" rel="stylesheet" />*@
+<link href="~/jqplugins/oclock/oclock.css" rel="stylesheet" />
+<div data-options="region:'east',split:true,hideCollapsedContent:false" title="الأنظمة الإدارية والمالية" style="width: 240px;" dir="rtl">
+    @*,collapsed:true*@
+    <input id="txtGSysTreeFilter" type="text" class="easyui-textbox" data-options="prompt:'بحث ...'" style="width:100%;" />
+    <a href="javascript:{}" class="easyui-linkbutton" iconCls="icon-reload" onclick="initTree()" style="float:left;"></a>
+    <ul id="ulSysTree" class="easyui-tree" style="width:100%;"></ul>
+</div>
+
+<div data-options="region:'west',split:true,hideCollapsedContent:false,collapsed:true" title="المهام والإشعارات" style="width:240px;" dir="rtl">
+    <div id="dSysNotificationsWest" class="easyui-accordion" data-options="fit:true,border:false"></div>
+</div>
+
+<div data-options="region:'center'">
+    <div id="apptbs" class="easyui-tabs" data-options="fit:true,border:false,plain:true,method:'get'">
+        <div title="الصفحة الرئيسية" data-options="closable:true" style="padding:5px">
+            <div style="text-align:center;border:1px solid #c2c2c2;">
+                <h1 style="color:#B9853C;">بوابة الأنظمة الإدارية والمالية</h1>
+                <div class="clock-wrapper">
+                    <div class="clock-container">
+                        <div id="sysClock"></div>
+                    </div>
+                </div>
+                <h3 style="color:#B9853C;">
+                    <span id="spnGSTodayDatesTxt"></span>
+                </h3>
+            </div>
+            @*<iframe src="~/App/Dashboard" style="width:100%;height:98%;" dir="rtl"></iframe>*@
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script src="~/jqplugins/oclock/jquery.oclock.min.js"></script>
+    <script src="~/jqplugins/sot/et.js"></script>
+    <script src="~/jqplugins/sot/sot.js"></script>
+    <script src="~/scripts/app.js?v33"></script>
+    <script src="~/scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/scripts/notifications.js?v1"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {  initUISystem(@(Html.Raw(Json.Encode(Model.UserNotifications))), @((Session["sysSettings"] as SysSettings) == null ? Html.Raw(Json.Encode(null)) : Html.Raw(Json.Encode(new { chd = (Session["sysSettings"] as SysSettings).current_hDate, hyl = (Session["sysSettings"] as SysSettings).hijriYears})))); });
+    </script>
+}
