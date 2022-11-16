@@ -1,9 +1,9 @@
-﻿using GRP.API.AuthProviders;
+﻿using GrpSample.API.AuthProviders;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
 
-namespace GRP.API.Common
+namespace GrpSample.API.Common
 {
     [Authorize]
     public class BaseController : ApiController

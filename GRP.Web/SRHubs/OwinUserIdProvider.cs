@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web;
 
-namespace GRP.Web.SRHubs
+namespace GrpSample.Web.SRHubs
 {
     public class OwinUserIdProvider : IUserIdProvider
     {

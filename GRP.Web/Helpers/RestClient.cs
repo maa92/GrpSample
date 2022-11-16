@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public class RestClient<T> where T : class
     {

@@ -1,10 +1,10 @@
-﻿using GRP.Models.SysCommon;
+﻿using GrpSample.Models.SysCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     static public class DateManager
     {

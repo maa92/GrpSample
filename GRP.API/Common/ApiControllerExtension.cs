@@ -4,7 +4,7 @@ using System.Web.Http;
 //using System.Web.Http.ModelBinding;
 //using System.Web.Http.Results;
 
-namespace GRP.API.Common
+namespace GrpSample.API.Common
 {
     //public static class ApiControllerExtension
     //{

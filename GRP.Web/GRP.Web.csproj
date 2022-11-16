@@ -13,7 +13,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GRP.Web</RootNamespace>
+    <RootNamespace>GrpSample.Web</RootNamespace>
     <AssemblyName>GRP.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -252,8 +252,6 @@
     <Content Include="Areas\LAW\scripts\Register\SessionAccept.js" />
     <Content Include="Areas\LAW\scripts\Register\SessionDetails.js" />
     <Content Include="Areas\LAW\scripts\Register\SessionReg.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-free-5.14.0-web\css\all.css" />
     <Content Include="fonts\fontawesome-free-5.14.0-web\css\all.min.css" />
@@ -1893,7 +1891,6 @@
     <Content Include="fonts\fontawesome-free-5.14.0-web\webfonts\fa-solid-900.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="bundleconfig.json" />
     <Content Include="images\AppHomeLogo.jpg" />
     <Content Include="images\appLoading.gif" />

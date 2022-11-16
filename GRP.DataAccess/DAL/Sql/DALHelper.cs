@@ -5,7 +5,7 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace GRP.DataAccess.DAL.Sql
+namespace GrpSample.DataAccess.DAL.Sql
 {
     public enum SqlDbParameterDirection
     {

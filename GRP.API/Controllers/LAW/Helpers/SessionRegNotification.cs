@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace GRP.API.Controllers.LAW.Helpers
+namespace GrpSample.API.Controllers.LAW.Helpers
 {
     public class SessionRegNotification
     {

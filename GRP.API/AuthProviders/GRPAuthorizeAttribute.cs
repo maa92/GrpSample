@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace GRP.API.AuthProviders
+namespace GrpSample.API.AuthProviders
 {
     public class GRPAuthorizeAttribute : AuthorizeAttribute
     {

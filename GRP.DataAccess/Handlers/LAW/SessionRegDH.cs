@@ -1,7 +1,7 @@
-﻿using GRP.DataAccess.DAL;
-using GRP.DataAccess.DAL.Oracle;
-using GRP.DataAccess.Xml;
-using GRP.Models.LAW.Register;
+﻿using GrpSample.DataAccess.DAL;
+using GrpSample.DataAccess.DAL.Oracle;
+using GrpSample.DataAccess.Xml;
+using GrpSample.Models.LAW.Register;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace GRP.DataAccess.Handlers.LAW
+namespace GrpSample.DataAccess.Handlers.LAW
 {
     public class SessionRegDH : BaseDataHandler
     {

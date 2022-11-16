@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 
-namespace GRP.Web.SRHubs
+namespace GrpSample.Web.SRHubs
 {
     [Authorize]
     [HubName("reqNotifyHub")]

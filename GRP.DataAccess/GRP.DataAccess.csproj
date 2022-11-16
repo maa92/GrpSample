@@ -7,7 +7,7 @@
     <ProjectGuid>{01BACEC0-4A5C-402B-ABF8-1B5784638851}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GRP.DataAccess</RootNamespace>
+    <RootNamespace>GrpSample.DataAccess</RootNamespace>
     <AssemblyName>GRP.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,6 +49,7 @@
     <Compile Include="DAL\Sql\DALHelper.cs" />
     <Compile Include="DAL\Utils.cs" />
     <Compile Include="ExceptionFormatter.cs" />
+    <Compile Include="GroupingUtil.cs" />
     <Compile Include="Handlers\Account\UserDH.cs" />
     <Compile Include="Handlers\CommonDH.cs" />
     <Compile Include="Handlers\LAW\LawRegDH.cs" />

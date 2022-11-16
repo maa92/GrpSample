@@ -1,10 +1,10 @@
-﻿using GRP.Web.SRHubs;
+﻿using GrpSample.Web.SRHubs;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(GRP.Web.Startup))]
-namespace GRP.Web
+[assembly: OwinStartupAttribute(typeof(GrpSample.Web.Startup))]
+namespace GrpSample.Web
 {
     public partial class Startup
     {

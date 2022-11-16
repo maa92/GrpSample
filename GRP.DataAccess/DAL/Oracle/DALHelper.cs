@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 
-namespace GRP.DataAccess.DAL.Oracle
+namespace GrpSample.DataAccess.DAL.Oracle
 {
     public enum OracleDbParameterDirection
     {

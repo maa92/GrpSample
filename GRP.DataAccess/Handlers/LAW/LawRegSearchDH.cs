@@ -1,8 +1,8 @@
-﻿using GRP.DataAccess.DAL;
-using GRP.DataAccess.DAL.Oracle;
-using GRP.DataAccess.Xml;
-using GRP.Models.LAW.Register;
-using GRP.Models.LAW.Register.LawRegSearch;
+﻿using GrpSample.DataAccess.DAL;
+using GrpSample.DataAccess.DAL.Oracle;
+using GrpSample.DataAccess.Xml;
+using GrpSample.Models.LAW.Register;
+using GrpSample.Models.LAW.Register.LawRegSearch;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.DataAccess.Handlers.LAW
+namespace GrpSample.DataAccess.Handlers.LAW
 {
     public class LawRegSearchDH : BaseDataHandler
     {

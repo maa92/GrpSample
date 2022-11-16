@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public class CompressAttribute : ActionFilterAttribute
     {

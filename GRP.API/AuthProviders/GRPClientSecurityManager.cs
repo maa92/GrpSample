@@ -4,9 +4,9 @@ using System.Runtime.Caching;
 using Newtonsoft.Json;
 using System.IO;
 using System.Configuration;
-using GRP.Models.Security;
+using GrpSample.Models.Security;
 
-namespace GRP.API.AuthProviders
+namespace GrpSample.API.AuthProviders
 {
     public class GRPClientSecurityManager
     {

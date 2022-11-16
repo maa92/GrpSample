@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace GRP.DataAccess
+namespace GrpSample.DataAccess
 {
     static class ExceptionFormatter
     {

@@ -1,8 +1,8 @@
-﻿using GRP.Models.System;
+﻿using GrpSample.Models.System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace GRP.Models.Account
+namespace GrpSample.Models.Account
 {
     public class User
     {

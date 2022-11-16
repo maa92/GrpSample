@@ -1,12 +1,12 @@
-﻿using GRP.DataAccess.DAL;
-using GRP.DataAccess.DAL.Oracle;
+﻿using GrpSample.DataAccess.DAL;
+using GrpSample.DataAccess.DAL.Oracle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.DataAccess.Handlers
+namespace GrpSample.DataAccess.Handlers
 {
     public class CommonDH : BaseDataHandler
     {

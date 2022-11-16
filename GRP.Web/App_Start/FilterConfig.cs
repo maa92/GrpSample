@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace GRP.Web.App_Start
+namespace GrpSample.Web.App_Start
 {
     class FilterConfig
     {

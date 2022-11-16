@@ -1,5 +1,5 @@
-﻿using GRP.Models.System;
-using GRP.Web.Helpers;
+﻿using GrpSample.Models.System;
+using GrpSample.Web.Helpers;
 using Microsoft.Owin;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System;
 
-namespace GRP.Web.Controllers
+namespace GrpSample.Web.Controllers
 {
     [Authorize]
     public class AppController : Controller

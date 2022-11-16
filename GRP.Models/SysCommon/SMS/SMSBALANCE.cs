@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.Models.SysCommon.SMS
+namespace GrpSample.Models.SysCommon.SMS
 {
     public class SMSBALANCE
     {

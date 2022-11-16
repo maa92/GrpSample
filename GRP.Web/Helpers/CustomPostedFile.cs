@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     //Custom Instance for converting file in byte[] to HttpPostedFileBase object
     public partial class CustomPostedFile : HttpPostedFileBase

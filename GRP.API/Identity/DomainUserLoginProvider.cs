@@ -3,7 +3,7 @@ using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Security.Claims;
 
-namespace GRP.API.Identity
+namespace GrpSample.API.Identity
 {
     public class DomainUserLoginProvider : ILoginProvider
     {

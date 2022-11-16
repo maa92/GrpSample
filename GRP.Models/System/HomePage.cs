@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GRP.Models.System
+namespace GrpSample.Models.System
 {
     public class HomePage : BaseHomePage
     {

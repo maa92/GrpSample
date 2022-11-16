@@ -1,0 +1,33 @@
+﻿{
+  "clients": [
+    {
+      "id": "1",
+      "name": "grpWeb",
+      "password": "IWZXBncn9VYjJ3c"
+    },
+    {
+      "id": "2",
+      "name": "cadSys",
+      "password": "MXeTRWYj9VYjJ3c"
+    },
+    {
+      "id": "3",
+      "name": "mobApp",
+      "password": "AHcBJ2bt9VYjJ3c"
+    }
+  ],
+  "roles": [
+    {
+      "id": "c76ab8d2-1cb5-47bf-909d-688db6c710b4",
+      "name": "Admin",
+      "tokenValidity": "h_12",
+      "clients": "grpWeb"
+    },
+    {
+      "id": "aa59172f-afbd-4b34-8b54-125c1a86e3fd",
+      "name": "AppIntegration",
+      "tokenValidity": "d_365",
+      "clients": "cadSys,mobApp"
+    }
+  ]
+}

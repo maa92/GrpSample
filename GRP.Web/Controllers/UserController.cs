@@ -1,5 +1,5 @@
-﻿using GRP.Models.Security;
-using GRP.Web.Helpers;
+﻿using GrpSample.Models.Security;
+using GrpSample.Web.Helpers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity.Owin;
@@ -15,9 +15,9 @@ using System.Net;
 using System.Configuration;
 using System.Linq;
 using CaptchaMvc.HtmlHelpers;
-//using GRP.Web.Areas.HR.Helpers;
+//using GrpSample.Web.Areas.HR.Helpers;
 
-namespace GRP.Web.Controllers
+namespace GrpSample.Web.Controllers
 {
     [Authorize]
     public class UserController : Controller

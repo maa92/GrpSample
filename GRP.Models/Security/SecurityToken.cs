@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GRP.Models.Security
+namespace GrpSample.Models.Security
 {
     public class SecurityToken
     {

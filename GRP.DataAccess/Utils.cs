@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.DataAccess
+namespace GrpSample.DataAccess
 {
     public static class Utils
     {

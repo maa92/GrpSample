@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace GRP.API
+namespace GrpSample.API
 {
     public class WebApiConfig
     {

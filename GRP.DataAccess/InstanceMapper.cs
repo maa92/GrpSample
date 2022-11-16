@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 
-namespace GRP.DataAccess
+namespace GrpSample.DataAccess
 {
     public static class InstanceMapper<T> where T : class
     {

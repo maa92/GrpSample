@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 
-namespace GRP.DataAccess.Xml
+namespace GrpSample.DataAccess.Xml
 {
     public static class XmlData
     {

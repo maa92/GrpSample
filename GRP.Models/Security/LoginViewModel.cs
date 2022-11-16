@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GRP.Models.Security
+namespace GrpSample.Models.Security
 {
     public class LoginViewModel
     {

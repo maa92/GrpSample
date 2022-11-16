@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public class Hashing
     {

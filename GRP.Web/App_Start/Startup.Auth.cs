@@ -7,7 +7,7 @@ using Owin;
 //using Microsoft.Owin.Security;
 //using Microsoft.Owin.Extensions;
 
-namespace GRP.Web
+namespace GrpSample.Web
 {
     public partial class Startup
     {

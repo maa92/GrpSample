@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.Models.Security
+namespace GrpSample.Models.Security
 {
     public class SystemClientsAndRoles
     {

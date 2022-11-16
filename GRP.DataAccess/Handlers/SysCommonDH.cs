@@ -1,7 +1,7 @@
-﻿using GRP.DataAccess.DAL;
-using GRP.DataAccess.DAL.Oracle;
-using GRP.DataAccess.Xml;
-using GRP.Models.SysCommon;
+﻿using GrpSample.DataAccess.DAL;
+using GrpSample.DataAccess.DAL.Oracle;
+using GrpSample.DataAccess.Xml;
+using GrpSample.Models.SysCommon;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.DataAccess.Handlers.SysCommon
+namespace GrpSample.DataAccess.Handlers.SysCommon
 {
     public class SysCommonDH : BaseDataHandler
     {

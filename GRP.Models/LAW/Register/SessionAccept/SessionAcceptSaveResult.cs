@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.Models.LAW.Register.SessionAccept
+namespace GrpSample.Models.LAW.Register.SessionAccept
 {
     public class SessionAcceptSaveResult
     {

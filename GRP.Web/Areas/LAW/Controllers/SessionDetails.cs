@@ -1,6 +1,6 @@
-﻿using GRP.Models.LAW.Register;
-using GRP.Web.Controllers;
-using GRP.Web.Helpers;
+﻿using GrpSample.Models.LAW.Register;
+using GrpSample.Web.Controllers;
+using GrpSample.Web.Helpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace GRP.Web.Areas.LAW.Controllers
+namespace GrpSample.Web.Areas.LAW.Controllers
 {
     [Authorize]
     public partial class RegisterController : BaseController

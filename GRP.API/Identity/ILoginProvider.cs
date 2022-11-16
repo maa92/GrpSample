@@ -1,7 +1,7 @@
 ﻿
 using System.Threading.Tasks;
 
-namespace GRP.API.Identity
+namespace GrpSample.API.Identity
 {
     public interface ILoginProvider
     {

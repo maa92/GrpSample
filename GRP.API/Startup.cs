@@ -5,7 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GRP.API
+//[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+[assembly: OwinStartup(typeof(GrpSample.API.Startup))]
+
+namespace GrpSample.API
 {
     public class Startup
     {

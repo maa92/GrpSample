@@ -1,8 +1,8 @@
-﻿using GRP.Models.SysCommon;
+﻿using GrpSample.Models.SysCommon;
 using System;
 using System.Collections.Generic;
 
-namespace GRP.Models.System
+namespace GrpSample.Models.System
 {
     public class SysSettings
     {

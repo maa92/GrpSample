@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public static class GRPEncoding
     {

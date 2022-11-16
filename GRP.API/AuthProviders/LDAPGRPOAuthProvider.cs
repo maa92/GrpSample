@@ -1,8 +1,8 @@
-﻿using GRP.DataAccess;
-using GRP.API.Identity;
-using GRP.DataAccess.Handlers;
-using GRP.DataAccess.Handlers.Account;
-using GRP.Models.Account;
+﻿using GrpSample.DataAccess;
+using GrpSample.API.Identity;
+using GrpSample.DataAccess.Handlers;
+using GrpSample.DataAccess.Handlers.Account;
+using GrpSample.Models.Account;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using System;
@@ -11,7 +11,7 @@ using System.Configuration;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace GRP.API.AuthProviders
+namespace GrpSample.API.AuthProviders
 {
     public class LDAPGRPOAuthProvider : OAuthAuthorizationServerProvider
     {

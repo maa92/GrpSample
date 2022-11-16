@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     //Custom Instance for serializing HttpPostedFileBase object to json
     public class HttpPostedFileConverter : JsonConverter

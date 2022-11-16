@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GRP.Models.System
+namespace GrpSample.Models.System
 {
     public class SysForm
     {

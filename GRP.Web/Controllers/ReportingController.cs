@@ -1,4 +1,4 @@
-﻿using GRP.Web.Helpers;
+﻿using GrpSample.Web.Helpers;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 using System;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GRP.Web.Controllers
+namespace GrpSample.Web.Controllers
 {
     [Authorize]
     public class ReportingController : BaseController

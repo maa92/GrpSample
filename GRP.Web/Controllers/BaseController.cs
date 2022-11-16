@@ -1,10 +1,10 @@
-﻿using GRP.Models.System;
+﻿using GrpSample.Models.System;
 using Microsoft.Owin;
 using System.Configuration;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GRP.Web.Controllers
+namespace GrpSample.Web.Controllers
 {
     public class BaseController : Controller
     {

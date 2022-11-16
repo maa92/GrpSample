@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public class Ar2EnNumbers
     {

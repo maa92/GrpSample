@@ -1,7 +1,7 @@
-﻿using GRP.API.AuthProviders;
-using GRP.API.Common;
-using GRP.DataAccess.Handlers.LAW;
-using GRP.Models.LAW.Register.LawRegSearch;
+﻿using GrpSample.API.AuthProviders;
+using GrpSample.API.Common;
+using GrpSample.DataAccess.Handlers.LAW;
+using GrpSample.Models.LAW.Register.LawRegSearch;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-namespace GRP.API.Controllers.LAW
+namespace GrpSample.API.Controllers.LAW
 {
     [GRPAuthorize(Roles = "Admin")]
     public class LawRegSearchController : BaseController

@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace GRP.Web.Helpers
+namespace GrpSample.Web.Helpers
 {
     public class CustomWindowsAuthentication: OwinMiddleware
     {

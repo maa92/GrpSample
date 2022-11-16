@@ -1,6 +1,6 @@
-﻿using GRP.Models.LAW.Register.SessionAccept;
-using GRP.Web.Controllers;
-using GRP.Web.Helpers;
+﻿using GrpSample.Models.LAW.Register.SessionAccept;
+using GrpSample.Web.Controllers;
+using GrpSample.Web.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GRP.Web.Areas.LAW.Controllers
+namespace GrpSample.Web.Areas.LAW.Controllers
 {
     [Authorize]
     public partial class RegisterController : BaseController

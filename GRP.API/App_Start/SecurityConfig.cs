@@ -1,11 +1,11 @@
-﻿using GRP.API.AuthProviders;
+﻿using GrpSample.API.AuthProviders;
 using Microsoft.Owin;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
 
-namespace GRP.API
+namespace GrpSample.API
 {
     public class SecurityConfig
     {

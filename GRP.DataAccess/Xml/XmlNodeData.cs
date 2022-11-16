@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GRP.DataAccess.Xml
+namespace GrpSample.DataAccess.Xml
 {
     public class XmlNodeData
     {

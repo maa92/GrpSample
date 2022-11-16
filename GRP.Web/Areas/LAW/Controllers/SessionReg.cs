@@ -1,4 +1,4 @@
-﻿using GRP.Web.Controllers;
+﻿using GrpSample.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
-using GRP.Models.LAW.Register;
-using GRP.Web.Helpers;
-using GRP.Models.System;
+using GrpSample.Models.LAW.Register;
+using GrpSample.Web.Helpers;
+using GrpSample.Models.System;
 using System.Web.Script.Serialization;
-using GRP.Web.Areas.LAW.Helpers;
-using GRP.Web.SRHubs;
+using GrpSample.Web.Areas.LAW.Helpers;
+using GrpSample.Web.SRHubs;
 
-namespace GRP.Web.Areas.LAW.Controllers
+namespace GrpSample.Web.Areas.LAW.Controllers
 {
     [Authorize]
     public partial class RegisterController : BaseController

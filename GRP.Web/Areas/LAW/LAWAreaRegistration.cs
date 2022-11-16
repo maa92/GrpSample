@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace GRP.Web.Areas.LAW
+namespace GrpSample.Web.Areas.LAW
 {
     public class LAWAreaRegistration : AreaRegistration
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRP.Models.LAW.Register.LawRegSearch
+namespace GrpSample.Models.LAW.Register.LawRegSearch
 {
     public class SearchLookups
     {
